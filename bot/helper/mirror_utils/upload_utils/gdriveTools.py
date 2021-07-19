@@ -357,7 +357,6 @@ class GoogleDriveHelper:
                 self.cloneFolder(meta.get('name'), meta.get('name'), meta.get('id'), dir_id)
                 msg += f'<b>☞ 📂 Filename: </b><code>{meta.get("name")}</code>\n<b>☞ 📦 Size: </b><code>{get_readable_file_size(self.transferred_size)}</code>'
                 msg += f'\n<b>☞ 🌀 Type: </b><code>Folder</code>'
-                msg += f'\n<b>☞ 🗳 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆</b> @AT_BOTS'
 #                 msg += f'\n<b>Files: </b><code>{self.total_files}</code>'
                 durl = self.__G_DRIVE_DIR_BASE_DOWNLOAD_URL.format(dir_id)
                 buttons = button_build.ButtonMaker()
@@ -396,7 +395,6 @@ class GoogleDriveHelper:
                     typeee = 'File' 
                 try:
                     msg += f'\n<b>☞ 📦 Size: </b><code>{get_readable_file_size(int(meta.get("size")))}</code>'
-                    msg += f'\n<b>☞ 🗳 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆 </b> @AT_BOTS'
                 except TypeError:
                     pass
                 if INDEX_URL is not None:
@@ -535,9 +533,9 @@ class GoogleDriveHelper:
                     content += f'<b> | <a href="https://telegra.ph/{self.path[nxt_page]}">Next</a></b>'
                     nxt_page += 1
             Telegraph(access_token=telegraph_token).edit_page(path = self.path[prev_page],
-                                 title = 'AT_BOTs',
-                                 author_name='AT_BOTs',
-                                 author_url='https://t.me/AT_BOTs',
+                                 title = 'modrepos',
+                                 author_name='modrepos',
+                                 author_url='https://t.me/modrepos',
                                  html_content=content)
         return
 
@@ -657,7 +655,6 @@ class GoogleDriveHelper:
                 msg += f'<b>☞ 📂 Filename: </b><code>{name}</code>'
                 msg += f'\n<b>☞ 📦 Size: </b><code>{get_readable_file_size(self.total_bytes)}</code>'
                 msg += f'\n<b>☞ 🌀 Type: </b><code>Folder</code>'
-                msg += f'\n<b>☞ 🗳 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆</b> @AT_BOTs'
             else:
                 msg += f'<b>☞ 📂 Filename: </b><code>{name}</code>'
                 try:
@@ -669,7 +666,9 @@ class GoogleDriveHelper:
                     self.gDrive_file(**drive_file)
                     msg += f'\n<b>☞ 📦 Size: </b><code>{get_readable_file_size(self.total_bytes)}</code>'
                     msg += f'\n<b>☞ 🌀 Type: </b><code>{typee}</code>'
-                    msg += f'\n<b>☞ 🗳 𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗕𝘆</b> @AT_BOTs'
+                    
+                    
+                           
                 except TypeError:
                     pass
         except Exception as err:
