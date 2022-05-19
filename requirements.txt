@@ -2,7 +2,9 @@ anytree
 aiohttp
 aria2p
 appdirs
+attrdict
 beautifulsoup4
+cfscrape
 feedparser
 gitpython
 google-api-python-client
@@ -28,4 +30,4 @@ speedtest-cli
 telegraph
 tenacity
 TgCrypto
-youtube_dl
+yt-dlp
