@@ -1,3 +1,4 @@
+anytree
 aiohttp
 aria2p
 appdirs
