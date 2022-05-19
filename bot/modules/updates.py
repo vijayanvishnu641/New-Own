@@ -3,24 +3,13 @@
 
 import sys
 import subprocess
-import heroku3
-
-from datetime import datetime
-from os import environ, execle, path, remove
-
-from git import Repo
-from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
+from os import path as ospath
+from subprocess import run as srun
 
 from pyrogram import filters
 
 from bot import app, OWNER_ID, UPSTREAM_REPO, UPSTREAM_BRANCH
-from bot.helper import runcmd, get_text, HEROKU_URL
 from bot.helper.telegram_helper.bot_commands import BotCommands
-
-REPO_ = UPSTREAM_REPO
-BRANCH_ = UPSTREAM_BRANCH
-
-# Update Command
 
 @app.on_message(filters.command(BotCommands.UpdateCommand) & filters.user(OWNER_ID))
 async def update_it(client, message):
