@@ -8,6 +8,7 @@ import string
 
 import aria2p
 import telegram.ext as tg
+from subprocess import Popen
 from os import environ
 from dotenv import load_dotenv
 from pyrogram import Client
