@@ -31,3 +31,6 @@ telegraph
 tenacity
 TgCrypto
 yt-dlp
+Pillow
+hachoir
+filesplit
