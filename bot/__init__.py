@@ -43,6 +43,16 @@ if CONFIG_FILE_URL is not None:
         logging.error(res.status_code)
 
 load_dotenv('config.env')
+try:
+    SERVER_PORT = getConfig('SERVER_PORT')
+    if len(SERVER_PORT) == 0:
+        raise KeyError
+except:
+    SERVER_PORT = 80
+
+PORT = environ.get('PORT', SERVER_PORT)
+alive = Popen(["python3", "alive.py"])
+Popen([f"gunicorn web.wserver:app --bind 0.0.0.0:{PORT}"], shell=True)
 
 Interval = []
 
