@@ -55,7 +55,7 @@ except:
 PORT = environ.get('PORT', SERVER_PORT)
 web = subprocess.Popen([f"gunicorn wserver:start_server --bind 0.0.0.0:{PORT} --worker-class aiohttp.GunicornWebWorker"], shell=True)
 time.sleep(1)
-alive = Popen(["python3", "alive.py"])
+alive = subprocess.Popen(["python3", "alive.py"])
 
 Interval = []
 
