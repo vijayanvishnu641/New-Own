@@ -17,8 +17,8 @@ async def update_it(client, message):
     try:
        if len(UPSTREAM_REPO) == 0:
          raise TypeError
-            
-       except:
+
+    except:
          UPSTREAM_REPO = None
     try:
        if len(UPSTREAM_BRANCH) == 0:
