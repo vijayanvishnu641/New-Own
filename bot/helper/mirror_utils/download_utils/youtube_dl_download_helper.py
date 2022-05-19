@@ -48,6 +48,7 @@ class YoutubeDLHelper(DownloadHelper):
                      'logger': MyLogger(self),
                      'usenetrc': True,
                      'embedsubtitles': True,
+                     'geo_bypass_country': "IN",
                      'prefer_ffmpeg': True,
                      'cookiefile': 'cookies.txt'}
     @property
@@ -148,16 +149,6 @@ class YoutubeDLHelper(DownloadHelper):
         self.extractMetaData(link, name)
         if self.is_cancelled:
             return
-
-    
-          
-            
-    
-
-          
-    
-    
-  
         if not self.is_playlist:
             self.opts['outtmpl'] = f"{path}/{self.name}"
         else:
