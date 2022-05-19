@@ -37,4 +37,4 @@ async def update_it(client, message):
                      && git remote add origin {UPSTREAM_REPO} \
                      && git fetch origin -q \
                      && git reset --hard origin/{UPSTREAM_BRANCH} -q"], 
-       await msg_.edit(f"`Updated Sucessfully! \n\nCheck your config with` `/{BotCommands.ConfigMenuCommand}`")
+    await msg_.edit(f"`Updated Sucessfully! \n\nCheck your config with` `/{BotCommands.ConfigMenuCommand}`")
