@@ -1,7 +1,3 @@
-# Implement By - @anasty17 (https://github.com/SlamDevs/slam-mirrorbot/commit/0bfba523f095ab1dccad431d72561e0e002e7a59)
-# (c) https://github.com/SlamDevs/slam-mirrorbot
-# All rights reserved
-
 import os
 import random
 import string
@@ -53,12 +49,9 @@ class QbitTorrent:
                 self.ext_hash = get_hash_magnet(link)
             tor_info = self.client.torrents_info(torrent_hashes=self.ext_hash)
             if len(tor_info) > 0:
-                if tor_info[0].state == "pausedDL":
-                    self.client.torrents_delete(torrent_hashes=self.ext_hash)
-                else:
-                    sendMessage("This Torrent is already in list.", listener.bot, listener.update)
-                    self.client.auth_log_out()
-                    return
+                sendMessage("This Torrent is already in list.", listener.bot, listener.update)
+                self.client.auth_log_out()
+                return
             if is_file:
                 op = self.client.torrents_add(torrent_files=[link], save_path=dire)
                 os.remove(link)
@@ -215,18 +208,18 @@ def get_confirm(update, context):
     data = query.data
     data = data.split(" ")
     qdl = getDownloadByGid(data[1])
-    if qdl is not None:
-        if user_id != qdl.listener.message.from_user.id:
-            query.answer(text="Don't waste your time!", show_alert=True)
-        elif data[0] == "pin":
-            query.answer(text=data[2], show_alert=True)
-        elif data[0] == "done":
-            query.answer()
-            qdl.client.torrents_resume(torrent_hashes=data[2])
-            sendStatusMessage(qdl.listener.update, qdl.listener.bot)
-            query.message.delete()
-    else:
+    if qdl is None:
         query.answer(text="This task has been cancelled!", show_alert=True)
+        query.message.delete()
+
+    elif user_id != qdl.listener.message.from_user.id:
+        query.answer(text="Don't waste your time!", show_alert=True)
+    elif data[0] == "pin":
+        query.answer(text=data[2], show_alert=True)
+    elif data[0] == "done":
+        query.answer()
+        qdl.client.torrents_resume(torrent_hashes=data[2])
+        sendStatusMessage(qdl.listener.update, qdl.listener.bot)
         query.message.delete()
 
 
