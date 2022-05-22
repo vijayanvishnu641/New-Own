@@ -10,7 +10,7 @@ import time
 from PIL import Image
 from hachoir.parser import createParser
 from hachoir.metadata import extractMetadata
-from fsplit.filesplit import Filesplit
+from filesplit.fsplit import Filesplit
 
 from .exceptions import NotSupportedExtractionArchive
 from bot import aria2, LOGGER, DOWNLOAD_DIR, get_client, TG_SPLIT_SIZE
