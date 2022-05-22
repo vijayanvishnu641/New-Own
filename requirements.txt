@@ -6,7 +6,6 @@ attrdict
 beautifulsoup4
 cfscrape
 feedparser
-filesplit
 gitpython
 google-api-python-client
 google-auth-httplib2
@@ -19,7 +18,7 @@ js2py
 lk21
 lxml
 messages
-Pillow
+pillow
 psutil
 psycopg2-binary
 pybase64
