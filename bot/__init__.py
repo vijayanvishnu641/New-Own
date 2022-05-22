@@ -421,6 +421,12 @@ if os.path.exists('drive_folder'):
                 INDEX_URLS.append(temp[2])
             except IndexError as e:
                 INDEX_URLS.append(None)
+try:
+    IMAGE_URL = getConfig('IMAGE_URL')
+    if len(IMAGE_URL) == 0:
+        IMAGE_URL = 'https://telegra.ph/file/db03910496f06094f1f7a.jpg'
+except KeyError:
+    IMAGE_URL = 'https://telegra.ph/file/db03910496f06094f1f7a.jpg'
 
 updater = tg.Updater(token=BOT_TOKEN)
 bot = updater.bot
