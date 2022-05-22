@@ -47,7 +47,7 @@ class TgUploader:
                 self.upload_file(up_path, file)
                 if self.is_cancelled:
                     return
-                msgs_dict[file] = self.sent_msg.message_id
+                msgs_dict[file] = self.sent_msg.id
                 os.remove(up_path)
                 self.last_uploaded = 0
         LOGGER.info(f"Leech Done: {self.name}")
