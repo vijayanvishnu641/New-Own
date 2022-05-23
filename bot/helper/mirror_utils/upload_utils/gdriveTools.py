@@ -22,7 +22,7 @@ from tenacity import *
 from telegram import InlineKeyboardMarkup
 from bot.helper.telegram_helper import button_build
 from telegraph import Telegraph
-from bot import parent_id, DOWNLOAD_DIR, IS_TEAM_DRIVE, INDEX_URL, TELEGPRAH_AUTH_URL, TELEGPRAH_AUTHOR, TELEGRAPH_TITLE, \
+from bot import parent_id, DOWNLOAD_DIR, IS_TEAM_DRIVE, INDEX_URL, TELEGRAPH_AUTH_URL, TELEGRAPH_AUTHOR, TELEGRAPH_TITLE, \
     USE_SERVICE_ACCOUNTS, telegraph_token, BUTTON_FOUR_NAME, BUTTON_FOUR_URL, BUTTON_FIVE_NAME, BUTTON_FIVE_URL, BUTTON_SIX_NAME, BUTTON_SIX_URL, SHORTENER, SHORTENER_API, VIEW_LINK, DRIVES_NAMES, DRIVES_IDS, INDEX_URLS, RECURSIVE_SEARCH
 from bot.helper.ext_utils.bot_utils import get_readable_file_size, setInterval
 from bot.helper.ext_utils.fs_utils import get_mime_type, get_path_size
@@ -588,8 +588,8 @@ class GoogleDriveHelper:
                     nxt_page += 1
             Telegraph(access_token=telegraph_token).edit_page(path = self.path[prev_page],
                                  title = TELEGRAPH_TITLE,
-                                 author_name=TELEGPRAH_AUTHOR,
-                                 author_url=TELEGPRAH_AUTH_URL,
+                                 author_name=TELEGRAPH_AUTHOR,
+                                 author_url=TELEGRAPH_AUTH_URL,
                                  html_content=content)
         return
 
@@ -775,8 +775,8 @@ class GoogleDriveHelper:
         for content in self.telegraph_content :
             self.path.append(Telegraph(access_token=telegraph_token).create_page(
                                                     title = TELEGRAPH_TITLE,
-                                                    author_name=TELEGPRAH_AUTHOR,
-                                                    author_url=TELEGPRAH_AUTH_URL,
+                                                    author_name=TELEGRAPH_AUTHOR,
+                                                    author_url=TELEGRAPH_AUTH_URL,
                                                     html_content=content
                                                     )['path'])
 
