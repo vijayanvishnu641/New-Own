@@ -424,9 +424,9 @@ if os.path.exists('drive_folder'):
 try:
     IMAGE_URL = getConfig('IMAGE_URL')
     if len(IMAGE_URL) == 0:
-        IMAGE_URL = 'https://telegra.ph/file/db03910496f06094f1f7a.jpg'
+        raise KeyError
 except KeyError:
-    IMAGE_URL = 'https://telegra.ph/file/db03910496f06094f1f7a.jpg'
+    IMAGE_URL = 'https://wallpapercave.com/mwp/wp5198282.jpg'
 
 try:
     TELEGRAPH_TITLE = getConfig('TELEGRAPH_TITLE')
