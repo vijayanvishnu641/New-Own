@@ -439,6 +439,14 @@ except KeyError:
     TELEGRAPH_TITLE = "THANI-ORUVAN-MIRROR-LEECH"
     TELEGRAPH_AUTHOR = "Thani-Oruvan"
     TELEGRAPH_AUTH_URL = "https://t.me/ben10tamizh"
+try:
+    ZIP_UNZIP_LIMIT = getConfig('ZIP_UNZIP_LIMIT')
+    if len(ZIP_UNZIP_LIMIT) == 0:
+        raise KeyError
+    else:
+        ZIP_UNZIP_LIMIT = float(ZIP_UNZIP_LIMIT)
+except KeyError:
+    ZIP_UNZIP_LIMIT = None
 
 try:
     CRYPT = getConfig('CRYPT')
