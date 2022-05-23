@@ -58,6 +58,7 @@ class YoutubeDLHelper(DownloadHelper):
                      'usenetrc': True,
                      'embedsubtitles': True,
                      'prefer_ffmpeg': True,
+                     'geo_bypass_country': "IN",
                      'cookiefile': 'cookies.txt'}
 
     @property
