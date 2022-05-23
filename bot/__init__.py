@@ -436,7 +436,7 @@ try:
         raise KeyError
 except KeyError:
     logging.warning('Telegraph Credentials not provided!')
-    TELEGRAPH_TITLE = "THANI-ORUVAN-MIRROR-LEECH
+    TELEGRAPH_TITLE = "THANI-ORUVAN-MIRROR-LEECH"
     TELEGRAPH_AUTHOR = "Thani-Oruvan"
     TELEGRAPH_AUTH_URL = "t.me/ben10thamizh"
 
