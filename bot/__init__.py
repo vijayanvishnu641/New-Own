@@ -438,7 +438,7 @@ except KeyError:
     logging.warning('Telegraph Credentials not provided!')
     TELEGRAPH_TITLE = "THANI-ORUVAN-MIRROR-LEECH"
     TELEGRAPH_AUTHOR = "Thani-Oruvan"
-    TELEGRAPH_AUTH_URL = "https://t.me/ben10thamizh"
+    TELEGRAPH_AUTH_URL = "https://t.me/ben10tamizh"
 
 updater = tg.Updater(token=BOT_TOKEN)
 bot = updater.bot
