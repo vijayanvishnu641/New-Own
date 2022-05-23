@@ -428,6 +428,18 @@ try:
 except KeyError:
     IMAGE_URL = 'https://telegra.ph/file/db03910496f06094f1f7a.jpg'
 
+try:
+    TELEGRAPH_TITLE = getConfig('TELEGRAPH_TITLE')
+    TELEGRAPH_AUTHOR = getConfig('TELEGRAPH_AUTHOR')
+    TELEGRAPH_AUTH_URL = getConfig('TELEGRAPH_AUTH_URL')
+    if len(TELEGRAPH_TITLE) == 0 or len(TELEGRAPH_AUTH_URL) == 0 or len(TELEGRAPH_AUTHOR) == 0:
+        raise KeyError
+except KeyError:
+    logging.warning('Telegraph Credentials not provided!')
+    TELEGRAPH_TITLE = "THANI-ORUVAN-MIRROR-LEECH
+    TELEGRAPH_AUTHOR = "Thani-Oruvan"
+    TELEGRAPH_AUTH_URL = "t.me/ben10thamizh"
+
 updater = tg.Updater(token=BOT_TOKEN)
 bot = updater.bot
 dispatcher = updater.dispatcher
