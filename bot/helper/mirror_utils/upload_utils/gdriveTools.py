@@ -854,7 +854,7 @@ class GoogleDriveHelper:
                 self.gDrive_file(**file_)
 
 
-    def clonehelper(self, link):
+        def helper(self, link):
         try:
             file_id = self.getIdFromUrl(link)
         except (KeyError,IndexError):
@@ -865,7 +865,7 @@ class GoogleDriveHelper:
             drive_file = self.__service.files().get(fileId=file_id, fields="id, name, mimeType, size",
                                                    supportsTeamDrives=True).execute()
             name = drive_file['name']
-            LOGGER.info(f"Checking: {name}")
+            LOGGER.info(f"Checking size, this might take a minute: {name}")
             if drive_file['mimeType'] == self.__G_DRIVE_DIR_MIME_TYPE:
                 self.gDrive_directory(**drive_file)
             else:
@@ -874,14 +874,21 @@ class GoogleDriveHelper:
                     self.gDrive_file(**drive_file)
                 except TypeError:
                     pass
-            clonesize = self.total_bytes
+            size = self.total_bytes
             files = self.total_files
         except Exception as err:
             err = str(err).replace('>', '').replace('<', '')
             LOGGER.error(err)
-            msg = "File not found." if "File not found" in str(err) else f"Error.\n{err}"
+            if "File not found" in str(err):
+                token_service = self.alt_authorize()
+                if token_service is not None:
+                    self.__service = token_service
+                    return self.helper(link)
+                msg = "File not found."
+            else:
+                msg = f"Error.\n{err}"
             return msg, "", "", ""
-        return "", clonesize, name, files
+        return "", size, name, files
 
 
     def download(self, link):
