@@ -440,6 +440,13 @@ except KeyError:
     TELEGRAPH_AUTHOR = "Thani-Oruvan"
     TELEGRAPH_AUTH_URL = "https://t.me/ben10tamizh"
 
+try:
+    CRYPT = getConfig('CRYPT')
+    if len(CRYPT) == 0:
+        raise KeyError
+except:
+    CRYPT = None
+
 updater = tg.Updater(token=BOT_TOKEN)
 bot = updater.bot
 dispatcher = updater.dispatcher
