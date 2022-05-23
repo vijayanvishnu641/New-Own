@@ -854,7 +854,7 @@ class GoogleDriveHelper:
                 self.gDrive_file(**file_)
 
 
-        def helper(self, link):
+    def helper(self, link):
         try:
             file_id = self.getIdFromUrl(link)
         except (KeyError,IndexError):
@@ -889,7 +889,6 @@ class GoogleDriveHelper:
                 msg = f"Error.\n{err}"
             return msg, "", "", ""
         return "", size, name, files
-
 
     def download(self, link):
         self.is_downloading = True
