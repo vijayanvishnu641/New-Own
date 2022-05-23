@@ -1,9 +1,10 @@
-import logging
 import re
+import logging
 import threading
 import time
 import math
 
+from re import match as re_match
 from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot import dispatcher, download_dict, download_dict_lock, STATUS_LIMIT
 from telegram import InlineKeyboardMarkup
